@@ -13,16 +13,16 @@ const fetchData = async (url) => {
 
 const render = (el, data) => {
 	
-const title = `<h2>Races in D&D (${data.count})</h2>`;
-let list = '<ul class="list-group">';
+	const title = `<h2>Races in D&D (${data.count})</h2>`;
+	let list = '<ul class="list-group">';
 
-data.results.forEach(race => {
-	list += `<li class="list-group-item">${race.name}</li>` 
-});
-list += '</ul>';
+	data.results.forEach(race => {
+		list += `<li class="list-group-item">${race.name}</li>` 
+	});
+	list += '</ul>';
 
-el.innerHTML = title + list;
-el.style.width = '18rem';	
+	el.innerHTML = title + list;
+	el.style.width = '18rem';	
 };
 
 const style = (selector, cssClass) => {
