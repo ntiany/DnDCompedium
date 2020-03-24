@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
   <body>
-	<div id="races"></div>
-	<script src="races.js"></script>
+    <button type="button" class="btn btn-primary" id="raceBtn">Show Races</button>
+    <dnd-races></dnd-races>
+  <script src="races-component.js"></script>
 	<script>
-		const resp = fetch('http://www.dnd5eapi.co/api/spells/acid-arrow/')
-		.then(res => res.json()); 
-		resp.then(data => console.log(data));
+    const raceBtn = document.querySelector('#raceBtn');
+    const races = document.querySelector('dnd-races');
+    raceBtn.addEventListener('click', () => {
+      races.toggle();
+    });
+
+    races.addEventListener('raceEvent', (event) => {
+      //TODO do something useful
+      alert('Your selected race is ' + event.detail.race);
+    });
 	</script>
   </body>
 </html>
