@@ -10,17 +10,19 @@
   <body>
     <button type="button" class="btn btn-primary" id="raceBtn">Show Races</button>
     <dnd-races></dnd-races>
+    <dnd-race-modal></dnd-race-modal>
   <script src="races-component.js"></script>
+  <script src="race-detail-model-componant.js"></script>
 	<script>
     const raceBtn = document.querySelector('#raceBtn');
     const races = document.querySelector('dnd-races');
+    const raceModal = document.querySelector('dnd-race-modal');
     raceBtn.addEventListener('click', () => {
       races.toggle();
     });
 
     races.addEventListener('raceEvent', (event) => {
-      //TODO do something useful
-      alert('Your selected race is ' + event.detail.race);
+      raceModal.setAttribute('race', event.detail.race)
     });
 	</script>
   </body>

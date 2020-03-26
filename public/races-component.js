@@ -31,6 +31,9 @@ class RaceComponent extends HTMLElement {
             :host([open='false']) {
                 display: none;
             }
+            li {
+                cursor: pointer;
+            }
             
         </style>
         <h2 green">Races in D&D (${data.count})</h2>`;
