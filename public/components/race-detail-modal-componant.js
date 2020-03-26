@@ -54,18 +54,14 @@ class RaceDetailModal extends HTMLElement {
     connectedCallback() {
         const closeBtn = this.shadowRoot.querySelector('.btn-primary');
         closeBtn.addEventListener('click', () => this.hide());
-        if (!this.hasAttribute('race')) {
-            this.setAttribute('value', 'none');
-            }
     }
 
     static get observedAttributes() {
         return ['race'];
-        }
+    }
 
     attributeChangedCallback(name, oldValue, newValue) {
         this.show();
-
     }
 
     fetchData = async (url) => {
@@ -95,15 +91,14 @@ class RaceDetailModal extends HTMLElement {
         <div><h5 style="font-weight: 500">Size:</h5></span class="size">${data.size_description}</span></div>`
         title.innerHTML = data.name;
         content.innerHTML = contentHTML;
-
     }
 
     get race() {
         return this.getAttribute('race');
     }
 
-    set race(newValue) {
-        this.setAttribute('race', newValue);
+    set race(race) {
+        this.setAttribute('race', race);
     }
 
 }
