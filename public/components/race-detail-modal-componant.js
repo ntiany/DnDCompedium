@@ -3,7 +3,6 @@ const template = document.createElement('template');
 
 template.innerHTML = `
 
-
 <style>
     @import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
     .backdrop {
@@ -44,7 +43,6 @@ template.innerHTML = `
 `
 
 class RaceDetailModal extends HTMLElement {
-
 
     constructor() {
         super();
@@ -90,7 +88,6 @@ class RaceDetailModal extends HTMLElement {
         backdrop.classList.add('hidden');
     }
 
-
     setData(data) {
         const title = this.shadowRoot.querySelector('.card-title');
         const content = this.shadowRoot.querySelector('.card-body');
@@ -101,8 +98,6 @@ class RaceDetailModal extends HTMLElement {
 
     }
 
-
-
     get race() {
         return this.getAttribute('race');
     }
@@ -111,8 +106,6 @@ class RaceDetailModal extends HTMLElement {
         this.setAttribute('race', newValue);
     }
 
-
 }
 
 customElements.define('dnd-race-modal', RaceDetailModal);
-
