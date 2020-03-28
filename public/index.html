@@ -9,26 +9,37 @@
     <link rel="stylesheet" href="styles/app.css" />
   </head>
   <body>
-    <div class="container-fluid top"><img src="./resources/dnd.png" alt="logo" style="margin:10px 10px 10px 200px"> </div>
-    <div class="container-fluid menu"><button type="button" class="btn btn-danger">Spells</button><button type="button" class="btn btn-danger">Classes</button>
-      <button type="button" class="btn btn-danger">Races</button><button type="button" class="btn btn-danger">Backgrounds</button>
-      <button type="button" class="btn btn-danger">Equipment</button></div>
-    <button type="button" class="btn btn-primary" id="raceBtn">Show Races</button>
-    <dnd-races></dnd-races>
-    <dnd-race-modal></dnd-race-modal>
+    <div class="container-fluid top">
+      <div class="header-image"></div>
+    </div>
+    <div class="container-fluid menu">
+      <button type="button" class="btn btn-danger">Spells</button>
+      <button type="button" class="btn btn-danger">Classes</button>
+      <button type="button" class="btn btn-danger" id="raceBtn">Races</button>
+      <button type="button" class="btn btn-danger">Backgrounds</button>
+      <button type="button" class="btn btn-danger">Equipment</button>
+    </div>
+    <main>
+      <dnd-races></dnd-races>
+      <dnd-race-modal></dnd-race-modal>
+    </main>
   <script src="./components/race-detail-modal-componant.js"></script>
   <script src="./components/races-component.js"></script>
 	<script>
+
     const raceBtn = document.querySelector('#raceBtn');
     const races = document.querySelector('dnd-races');
+
     const raceModal = document.querySelector('dnd-race-modal');
     raceBtn.addEventListener('click', () => {
       races.toggle();
+      raceBtn.classList.toggle('active');
     });
 
     races.addEventListener('raceEvent', (event) => {
-      raceModal.setAttribute('race', event.detail.race)
+      raceModal.setAttribute('race', event.detail.race);
     });
+
 	</script>
   </body>
 </html>

@@ -10,3 +10,16 @@ body {
 .menu {
     background: #850606;
 }
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.header-image {
+    height: 7rem;
+    background-image: url('../resources/dnd.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
