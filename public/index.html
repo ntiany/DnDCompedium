@@ -15,30 +15,19 @@
     <div class="container-fluid menu d-flex justify-content-around flex-wrap">
       <button type="button" class="btn btn-danger">Spells</button>
       <button type="button" class="btn btn-danger">Classes</button>
-      <button type="button" class="btn btn-danger" id="raceBtn">Races</button>
+      <a href="javascript:navigate('races')"> <button type="button" class="btn btn-danger" id="raceBtn">Races</button></a>
       <button type="button" class="btn btn-danger">Backgrounds</button>
       <button type="button" class="btn btn-danger">Equipment</button>
     </div>
     <main>
-      <dnd-races></dnd-races>
-      <dnd-race-modal></dnd-race-modal>
+      <router-outlet></router-outlet>
     </main>
-  <script src="./components/race-detail-modal-componant.js"></script>
-  <script src="./components/races-component.js"></script>
+    <script src="main.js"></script>
 	<script>
 
-    const raceBtn = document.querySelector('#raceBtn');
-    const races = document.querySelector('dnd-races');
-
-    const raceModal = document.querySelector('dnd-race-modal');
-    raceBtn.addEventListener('click', () => {
-      races.toggle();
-      raceBtn.classList.toggle('active');
-    });
-
-    races.addEventListener('raceEvent', (event) => {
-      raceModal.setAttribute('race', event.detail.race);
-    });
+      function navigate(path) {
+        window.history.pushState({"html":"","pageTitle":"Races", "url": path}, "", path);
+      }
 
 	</script>
   </body>
