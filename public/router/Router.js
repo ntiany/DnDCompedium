@@ -5,13 +5,11 @@ class Router extends HTMLElement {
     connectedCallback() {
         const shadowRoot = this.attachShadow({mode: 'open'});
         const path = window.location.pathname.replace('/', '');
-        const that = this;
 
+        const that = this;
         const pushState = history.pushState;
+
         history.pushState = function(state) {
-            if (typeof history.onpushstate == "function") {
-                history.onpushstate({state: state});
-            }
             that.change(shadowRoot, state.url);
             return pushState.apply(history, arguments);
         };
