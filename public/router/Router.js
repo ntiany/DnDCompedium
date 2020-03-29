@@ -7,12 +7,6 @@ class Router extends HTMLElement {
         const path = window.location.pathname.replace('/', '');
         const that = this;
 
-        if (shadowRoot.childNodes.length === 0 && path.length > 0) {
-            this.change(shadowRoot, window.location.pathname.replace('/', ''));
-            return;
-        }
-
-
         const pushState = history.pushState;
         history.pushState = function(state) {
             if (typeof history.onpushstate == "function") {
@@ -22,6 +16,10 @@ class Router extends HTMLElement {
             return pushState.apply(history, arguments);
         };
 
+        if (shadowRoot.childNodes.length === 0 && path.length > 0) {
+            this.change(shadowRoot, window.location.pathname.replace('/', ''));
+        }
+        
     }
 
 
