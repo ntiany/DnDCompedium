@@ -1,20 +1,21 @@
-import RaceDetailModal from "./race-detail-modal-componant";
+import RaceDetailModal from "./race-detail-modal-component";
+import {LoadingSpinner} from './loading-spinner-component';
 
-let isOpen = false;
 let data = {};
 
 export class RaceComponent extends HTMLElement {
     constructor() {
         super();
-        this.setAttribute('open', true);
     }
 
     async connectedCallback() {
+        const shadowRoot = this.attachShadow({ mode: "open" });
+        const spinner = new LoadingSpinner();
+        shadowRoot.append(spinner)
+
         data = await this.fetchData('http://www.dnd5eapi.co/api/races/');
-        const shadowRoot = this.attachShadow({ mode: 'open'});
         this.render(shadowRoot, data);
         this.style('.list-group-item', 'active');
-
     }
 
     async fetchData (url) {
@@ -59,17 +60,12 @@ export class RaceComponent extends HTMLElement {
         });
     }
 
-    toggle() {
-        this.isOpen === true ? this.setAttribute('open', 'false') : this.setAttribute('open', 'true');
-        this.isOpen = !this.isOpen;
-    }
-
     emitRace(event) {
         const raceEvent = 
         new CustomEvent('raceEvent', { bubbles: true, composed: true, detail: {race: event.target.innerHTML } });
         event.target.dispatchEvent(raceEvent);
         let raceModal = new RaceDetailModal();
-        raceModal.race =event.target.innerHTML;
+        raceModal.race = event.target.innerHTML;
         const body = document.querySelector('body');
         body.append(raceModal);
     }

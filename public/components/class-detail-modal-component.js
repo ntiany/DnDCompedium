@@ -1,5 +1,6 @@
 const template = document.createElement('template');
 
+
 template.innerHTML = `
 
 <style>
@@ -40,23 +41,22 @@ template.innerHTML = `
 
 </div>
 `
-
-export default class RaceDetailModal extends HTMLElement {
+export default class ClassModal extends HTMLElement {
 
     constructor() {
         super();
         const shadowRoot = this.attachShadow({ 'mode': 'open' });
         shadowRoot.appendChild(template.content.cloneNode(true));
-
     }
 
     connectedCallback() {
+
         const closeBtn = this.shadowRoot.querySelector('.btn-primary');
         closeBtn.addEventListener('click', () => this.hide());
     }
 
     static get observedAttributes() {
-        return ['race'];
+        return ['class'];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -71,7 +71,7 @@ export default class RaceDetailModal extends HTMLElement {
     async show() {
         const backdrop = this.shadowRoot.querySelector('.backdrop');
 
-        const data = await this.fetchData(`http://www.dnd5eapi.co/api/races/${this.race.toLowerCase()}`);
+        const data = await this.fetchData(`http://www.dnd5eapi.co/api/classes/${this.clazz.toLowerCase()}`);
         
         this.setData(data);
         backdrop.classList.remove('hidden')
@@ -84,22 +84,29 @@ export default class RaceDetailModal extends HTMLElement {
     }
 
     setData(data) {
+        let profs = "";
+        data.proficiencies.forEach(prof => {
+            profs += `<div class="size">${prof.name}</div>`;
+        });
         const title = this.shadowRoot.querySelector('.card-title');
         const content = this.shadowRoot.querySelector('.card-body');
-        const contentHTML = `<div><h5 style="font-weight: 500">Age:</h5><span class="age">${data.age}</span></div><br>
-        <div><h5 style="font-weight: 500">Size:</h5></span class="size">${data.size_description}</span></div>`
+        const contentHTML = `<div><h5 style="font-weight: 500">Hit Points:</h5><span class="age">${data.hit_die}</span></div><br>
+        <div>
+            <h5 style="font-weight: 500">Proficiencies:</h5>
+           ${ profs }
+         </div>`
         title.innerHTML = data.name;
         content.innerHTML = contentHTML;
     }
 
-    get race() {
-        return this.getAttribute('race');
+    get clazz() {
+        return this.getAttribute('class');
     }
 
-    set race(race) {
-        this.setAttribute('race', race);
+    set clazz(clazz) {
+        this.setAttribute('class', clazz);
     }
 
 }
 
-customElements.define('dnd-race-modal', RaceDetailModal);
+customElements.define('dnd-class-modal', ClassModal);

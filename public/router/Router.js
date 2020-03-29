@@ -28,13 +28,13 @@ class Router extends HTMLElement {
         if (root.childNodes.length === 1) {
             oldNode = root.childNodes[0];
         }
-        
+
         const filter = (route) => route.path  === newRoute;
         const comp = ROUTES.filter(filter)[0];
 
         if (!comp) {
             window.history.pushState({"url": "races"}, "", "races");
-            throw 'This Path doesnt exists!'
+            throw 'This Path doesn\'t exist!'
         }
 
         if (comp) {
