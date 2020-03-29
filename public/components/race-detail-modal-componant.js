@@ -1,4 +1,3 @@
-
 const template = document.createElement('template');
 
 template.innerHTML = `
@@ -42,7 +41,7 @@ template.innerHTML = `
 </div>
 `
 
-class RaceDetailModal extends HTMLElement {
+export default  class RaceDetailModal extends HTMLElement {
 
     constructor() {
         super();
@@ -64,7 +63,7 @@ class RaceDetailModal extends HTMLElement {
         this.show();
     }
 
-    fetchData = async (url) => {
+    async fetchData (url) {
         const response = await fetch(url);
         return await response.json();
     }

@@ -1,26 +1,28 @@
-class RaceComponent extends HTMLElement {
-    isOpen = false;
-    data;
+import RaceDetailModal from "./race-detail-modal-componant";
 
+let isOpen = false;
+let data = {};
+
+export class RaceComponent extends HTMLElement {
     constructor() {
         super();
-        
+        this.setAttribute('open', true);
     }
 
     async connectedCallback() {
-        this.data = await this.fetchData('http://www.dnd5eapi.co/api/races/');
+        data = await this.fetchData('http://www.dnd5eapi.co/api/races/');
         const shadowRoot = this.attachShadow({ mode: 'open'});
-        this.render(shadowRoot, this.data);
+        this.render(shadowRoot, data);
         this.style('.list-group-item', 'active');
-        this.setAttribute('open', false)
+
     }
 
-    fetchData = async (url) => {
+    async fetchData (url) {
         const response = await fetch(url);
         return await response.json();
     }
-    
-    render = (el, data) => {
+
+    async render(el, data) {
         
         const title = `
         <style>
@@ -48,7 +50,7 @@ class RaceComponent extends HTMLElement {
 
     }
     
-    style = (selector, cssClass) => {
+    async style (selector, cssClass) {
         const elements = this.shadowRoot.querySelectorAll(selector);
         elements.forEach(el => {
             el.addEventListener('mouseover', () => { el.classList.add(cssClass); });
@@ -66,6 +68,10 @@ class RaceComponent extends HTMLElement {
         const raceEvent = 
         new CustomEvent('raceEvent', { bubbles: true, composed: true, detail: {race: event.target.innerHTML } });
         event.target.dispatchEvent(raceEvent);
+        let raceModal = new RaceDetailModal();
+        raceModal.race =event.target.innerHTML;
+        const body = document.querySelector('body');
+        body.append(raceModal);
     }
 
 }
