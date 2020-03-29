@@ -6,7 +6,8 @@ import { LoadingSpinner } from '../components/loading-spinner-component';
 
 export const ROUTES =
     [
-        { path: '', title: 'The Races of DnD', component: HomeComponent },
+        { path: '/', title: 'Home of DnD', component: HomeComponent },
         { path: 'races', title: 'The Races of DnD', component: RaceComponent },
         { path: 'classes', title: 'The Classes of DnD', component: ClassesComponent },
+        { path: '*', title: 'Home of DnD', component: HomeComponent },
     ];

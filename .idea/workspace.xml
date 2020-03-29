@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="883df1f9-78ca-462f-aa3d-0977d84fc6bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/33af193f9e044e019b9a5ce871771a8f.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/races.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/router/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/router/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/router/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/router/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +44,11 @@
       <recent name="C:\Entwicklung\DnDCompedium\public\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Entwicklung\DnDCompedium\public\router" />
       <recent name="C:\Entwicklung\DnDCompedium\public" />
+      <recent name="C:\Entwicklung\DnDCompedium" />
+      <recent name="C:\Entwicklung\DnDCompedium\public\router" />
       <recent name="C:\Entwicklung\DnDCompedium\public\components" />
       <recent name="C:\Entwicklung\DnDCompedium\public\Router" />
-      <recent name="C:\Entwicklung\DnDCompedium" />
     </key>
   </component>
   <component name="RunManager">
@@ -88,26 +94,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585472976422" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585496617093">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1585517317108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585496617093" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585496617093">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585517317108" />
+    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1585517317108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585496617093" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585496617093">
+    <state width="938" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585517317108" />
+    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1585517317108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585496617093" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585496617093">
+    <state width="938" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585517317108" />
+    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1585517317108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585496617093" />
-    <state x="667" y="276" width="586" height="488" key="find.popup" timestamp="1585490787288">
+    <state width="938" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585517317108" />
+    <state x="667" y="276" width="586" height="488" key="find.popup" timestamp="1585516885278">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="276" width="586" height="488" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585490787288" />
+    <state x="667" y="276" width="586" height="488" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585516885278" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1585512847930">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -17,7 +17,7 @@ class Router extends HTMLElement {
         if (shadowRoot.childNodes.length === 0) {
             this.change(shadowRoot, window.location.pathname.replace('/', ''));
         }
-        
+
     }
 
     change(root, newRoute) {
@@ -28,11 +28,13 @@ class Router extends HTMLElement {
         }
 
         const filter = (route) => route.path  === newRoute;
-        const comp = ROUTES.filter(filter)[0];
+        let comp = ROUTES.filter(filter)[0];
 
         if (!comp) {
-            window.history.pushState({"url": "races"}, "", "races");
-            throw 'This Path doesn\'t exist!'
+            comp = ROUTES.filter(route => route.path === '*')[0];
+            console.error('This Path doesn\'t exist!');
+            window.history.pushState.apply(history,[{url: '/'}, '', '/']);
+            return;
         }
 
         if (comp) {
