@@ -1,30 +1,40 @@
-import {ROUTES} from "./Routes";
+import {ROUTES} from "../router/Routes";
 
 class Router extends HTMLElement {
 
     connectedCallback() {
-        const path = window.location.href;
         const shadowRoot = this.attachShadow({mode: 'open'});
 
         const that = this;
-        var pushState = history.pushState;
-        history.pushState = function () {
-            that.change(shadowRoot, arguments);
+
+        const path = window.location.pathname.replace('/', '');
+
+        if (shadowRoot.childNodes.length === 0 && path.length > 0) {
+            this.change(shadowRoot, window.location.pathname.replace('/', ''));
+            return;
+        }
+
+
+        const pushState = history.pushState;
+        history.pushState = function(state) {
+            if (typeof history.onpushstate == "function") {
+                history.onpushstate({state: state});
+            }
+            that.change(shadowRoot, state.url);
+            return pushState.apply(history, arguments);
         };
+
     }
 
 
     change(root, newRoute) {
-        const path = window.location.href;
         let oldNode;
-
         if (root.childNodes.length === 1) {
 
             oldNode = root.childNodes[0];
         }
 
-
-        const filter = (route) => window.location.origin + '/' + route.path  === path;
+        const filter = (route) => route.path  === newRoute;
         const comp = ROUTES.filter(filter)[0];
 
         if (comp) {

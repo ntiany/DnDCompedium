@@ -1,4 +1,4 @@
-import { RaceComponent } from "./races-component";
+import { RaceComponent } from "../components/races-component";
 
 
 export const ROUTES =
