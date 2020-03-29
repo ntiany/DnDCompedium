@@ -42,6 +42,7 @@ class Router extends HTMLElement {
             if (!!oldNode && oldNode.nodeName !== el.nodeName) {
                 oldNode.remove();
                 root.append(el);
+                document.title = comp.title;
                 return;
             }
 
@@ -51,6 +52,7 @@ class Router extends HTMLElement {
 
             if (!!!oldNode)
             root.append(el);
+            document.title = comp.title;
         }
 
     }
