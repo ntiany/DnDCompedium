@@ -4,10 +4,8 @@ class Router extends HTMLElement {
 
     connectedCallback() {
         const shadowRoot = this.attachShadow({mode: 'open'});
-
-        const that = this;
-
         const path = window.location.pathname.replace('/', '');
+        const that = this;
 
         if (shadowRoot.childNodes.length === 0 && path.length > 0) {
             this.change(shadowRoot, window.location.pathname.replace('/', ''));
@@ -29,8 +27,8 @@ class Router extends HTMLElement {
 
     change(root, newRoute) {
         let oldNode;
-        if (root.childNodes.length === 1) {
 
+        if (root.childNodes.length === 1) {
             oldNode = root.childNodes[0];
         }
 
@@ -51,8 +49,8 @@ class Router extends HTMLElement {
             }
 
             if (!!!oldNode)
-            root.append(el);
-            document.title = comp.title;
+                root.append(el);
+                document.title = comp.title;
         }
 
     }
