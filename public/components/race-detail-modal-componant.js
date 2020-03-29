@@ -41,7 +41,7 @@ template.innerHTML = `
 </div>
 `
 
-export default  class RaceDetailModal extends HTMLElement {
+export default class RaceDetailModal extends HTMLElement {
 
     constructor() {
         super();

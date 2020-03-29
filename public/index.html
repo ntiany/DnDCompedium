@@ -10,7 +10,9 @@
   </head>
   <body>
     <div class="container-fluid top">
-      <div class="header-image"></div>
+      <a href="javascript:navigate('')">
+        <div class="header-image"></div>
+      </a>
     </div>
     <div class="container-fluid menu d-flex justify-content-around flex-wrap">
       <button type="button" class="btn btn-danger">Spells</button>
@@ -26,7 +28,7 @@
 	<script>
 
       function navigate(path) {
-        window.history.pushState({"html":"","pageTitle":"Races", "url": path}, "", path);
+        window.history.pushState({"url": path}, "", path);
       }
 
 	</script>
