@@ -33,7 +33,7 @@ class Router extends HTMLElement {
         if (!comp) {
             comp = ROUTES.filter(route => route.path === '*')[0];
             console.error('This Path doesn\'t exist!');
-            window.history.pushState.apply(history,[{url: '/'}, '', '/']);
+            window.history.pushState.apply(history,[{url: 'home'}, '', 'home']);
             return;
         }
 

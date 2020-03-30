@@ -10,18 +10,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        loader: "babel-loader",
-        query: {
-          presets: ["@babel/preset-env"]
-        }
-      }
-    ]
-  },
-  module: {
-    rules: [
-      {
-        test: /\.s[ac]ss$/i,
+        test:[ /\.s[ac]ss$/i],
         use: [
           // Creates `style` nodes from JS strings
           "style-loader",
@@ -38,7 +27,15 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: "html-loader"
-      }
-    ]
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
 };
