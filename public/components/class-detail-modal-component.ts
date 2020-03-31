@@ -1,10 +1,21 @@
-const template = document.createElement('template');
+import { Component } from '../decorators/custom-decorator';
 
-
-template.innerHTML = `
-
-<style>
-    @import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+@Component({
+    selector: 'dnd-class-modal',
+    template: `
+        <div class="backdrop hidden">
+            <slot></slot>
+            <div class="card" style="width: 25rem;">
+                <h4 class="card-title"></h4>
+                <div class="card-body">
+                    
+                </div>
+                <div style="display: flex; justify-content: center; margin-bottom: 0.5rem">
+                    <button typer="button" class="btn btn-primary" style="width: 5rem;">close</button>
+                </div>
+            </div>
+        </div>`,
+    style: ` @import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
     .backdrop {
         position: fixed;
         top: 0;
@@ -25,34 +36,20 @@ template.innerHTML = `
     
     .card {
         padding: 1rem;
-    }
-</style>
-<div class="backdrop hidden">
-    <slot></slot>
-    <div class="card" style="width: 25rem;">
-        <h4 class="card-title"></h4>
-        <div class="card-body">
-            
-        </div>
-        <div style="display: flex; justify-content: center; margin-bottom: 0.5rem">
-            <button typer="button" class="btn btn-primary" style="width: 5rem;">close</button>
-        </div>
-    </div>
-
-</div>
-`
+    }`
+})
 export default class ClassModal extends HTMLElement {
 
     constructor() {
         super();
-        const shadowRoot = this.attachShadow({ 'mode': 'open' });
-        shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
     connectedCallback() {
-
         const closeBtn = this.shadowRoot.querySelector('.btn-primary');
         closeBtn.addEventListener('click', () => this.hide());
+        this.show();
+
+
     }
 
     static get observedAttributes() {
@@ -60,8 +57,9 @@ export default class ClassModal extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        this.show();
+
     }
+
 
     async fetchData (url) {
         const response = await fetch(url);
@@ -72,7 +70,7 @@ export default class ClassModal extends HTMLElement {
         const backdrop = this.shadowRoot.querySelector('.backdrop');
 
         const data = await this.fetchData(`http://www.dnd5eapi.co/api/classes/${this.clazz.toLowerCase()}`);
-        
+
         this.setData(data);
         backdrop.classList.remove('hidden')
 
@@ -81,6 +79,7 @@ export default class ClassModal extends HTMLElement {
     hide() {
         const backdrop = this.shadowRoot.querySelector('.backdrop');
         backdrop.classList.add('hidden');
+        this.disconnectedCallback()
     }
 
     setData(data) {
@@ -97,6 +96,7 @@ export default class ClassModal extends HTMLElement {
          </div>`
         title.innerHTML = data.name;
         content.innerHTML = contentHTML;
+
     }
 
     get clazz() {
@@ -107,6 +107,7 @@ export default class ClassModal extends HTMLElement {
         this.setAttribute('class', clazz);
     }
 
-}
+    disconnectedCallback() {
+    }
 
-customElements.define('dnd-class-modal', ClassModal);
+}

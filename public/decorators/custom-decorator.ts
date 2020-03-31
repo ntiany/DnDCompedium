@@ -1,39 +1,44 @@
-export interface CustomComponent {
+export interface Configuration {
     selector:string;
     template: string;
     style?: string;
 }
 
-export const CustomElement = (customComponent: CustomComponent)  =>  (component)  =>  {
+export const Component = (configuration: Configuration)  =>  (component)  =>  {
 
     const template = document.createElement('template');
-    if (customComponent.style) {
-        customComponent.template = `<style>${customComponent.style}</style> ${customComponent.template}`;
+
+    if (configuration.style) {
+        configuration.template = `<style>${configuration.style}</style> ${configuration.template}`;
     }
 
-    if (customComponent.template) {
-        template.innerHTML = customComponent.template;
+    if (configuration.template) {
+        template.innerHTML = configuration.template;
     }
-
 
     const connectedCallback = component.prototype.connectedCallback;
     const disconnectedCallback = component.prototype.disconnectedCallback;
+    const attributeChangedCallback = component.prototype.attributeChangedCallback;
+
 
     component.prototype.connectedCallback = function() {
-
         const shadowRoot = this.attachShadow({ 'mode': 'open' });
         shadowRoot.appendChild(template.content.cloneNode(true));
         connectedCallback.call(this);
-
     };
 
     component.prototype.disconnectedCallback = function() {
-
         if (disconnectedCallback !== undefined) {
             disconnectedCallback.call(this);
         }
-
     };
 
-    customElements.define(customComponent.selector, component);
+    component.prototype.attributeChangedCallback = function(...args) {
+        setTimeout(() => {
+            attributeChangedCallback.call(this, ...args)
+        });
+
+    }
+
+    customElements.define(configuration.selector, component);
 };

@@ -3,9 +3,9 @@ import ClassModal from "./class-detail-modal-component";
 let data = {};
 import { LoadingSpinner } from './loading-spinner-component';
 
-import { CustomElement } from '../decorators/custom-decorator';
+import { Component } from '../decorators/custom-decorator';
 
-@CustomElement({
+@Component({
     selector: 'dnd-classes',
     template: '',
     style: ` 
@@ -22,20 +22,18 @@ import { CustomElement } from '../decorators/custom-decorator';
             `
 })
 export class ClassesComponent extends HTMLElement {
-    spinner = new LoadingSpinner();
+    private spinner = new LoadingSpinner();
+
     constructor() {
         super();
         this.setAttribute('open', 'true');
     }
 
     async connectedCallback() {
-
         this.shadowRoot.append(this.spinner);
-
         data = await this.fetchData('http://www.dnd5eapi.co/api/classes/');
         this.render(this.shadowRoot, data);
         this.styles('.list-group-item', 'active');
-
     }
 
     async fetchData (url: string) {
@@ -44,9 +42,7 @@ export class ClassesComponent extends HTMLElement {
     }
 
     async render(el: ShadowRoot, data: any) {
-        
         const title = `
-       
         <h2 green">Classes in D&D (${data.count})</h2>`;
         let list = '<ul class="list-group">';
     
@@ -56,7 +52,6 @@ export class ClassesComponent extends HTMLElement {
         list += '</ul>';
         this.spinner.remove();
         el.innerHTML = el.innerHTML + title + list;
-
     }
     
     async styles (selector, cssClass) {

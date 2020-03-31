@@ -1,6 +1,6 @@
-import { CustomElement } from '../decorators/custom-decorator';
+import { Component } from '../decorators/custom-decorator';
 
-@CustomElement({
+@Component({
     selector: 'dnd-home',
     template: `
         <div>

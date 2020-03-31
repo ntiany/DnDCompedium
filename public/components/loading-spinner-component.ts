@@ -1,7 +1,9 @@
-const template = document.createElement('template');
-template.innerHTML = `
-    <style>
-        .lds-roller {
+import { Component } from '../decorators/custom-decorator';
+
+@Component({
+    selector: 'dnd-loading-spinner',
+    template: `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`,
+    style: `.lds-roller {
           display: inline-block;
           position: relative;
           width: 80px;
@@ -84,21 +86,16 @@ template.innerHTML = `
           100% {
             transform: rotate(360deg);
           }
-        }
-    </style>
-    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-`
+        }`
+})
 export class LoadingSpinner extends HTMLElement {
 
     constructor() {
         super();
     }
 
-    connectedCallback() {
-        const shadowRoot = this.attachShadow({ mode: "closed" });
-        shadowRoot.appendChild(template.content.cloneNode(true));
-    }
+    connectedCallback() {}
+
+    disconnectedCallback() {}
 
 }
-
-customElements.define('dnd-loading-spinner', LoadingSpinner);
