@@ -1,9 +1,8 @@
 import ClassModal from "./class-detail-modal-component";
+import { Component } from '../decorators/custom-decorator';
 
 let data = {};
 import { LoadingSpinner } from './loading-spinner-component';
-
-import { Component } from '../decorators/custom-decorator';
 
 @Component({
     selector: 'dnd-classes',

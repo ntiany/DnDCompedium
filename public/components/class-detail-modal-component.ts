@@ -56,9 +56,7 @@ export default class ClassModal extends HTMLElement {
         return ['class'];
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-
-    }
+    attributeChangedCallback(name, oldValue, newValue) {}
 
 
     async fetchData (url) {

@@ -5,6 +5,9 @@
     "sourceMap": true,
     "experimentalDecorators": true
   },
+  "include": [
+    "public/**/*"
+  ],
   "exclude": [
     "node_modules"
   ]

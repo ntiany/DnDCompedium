@@ -27,7 +27,7 @@ class Router extends HTMLElement {
             oldNode = root.childNodes[0];
         }
 
-        const filter = (route) => route.path  === newRoute;
+        const filter = (route) => route.path === newRoute;
         let comp = ROUTES.filter(filter)[0];
 
         if (!comp) {

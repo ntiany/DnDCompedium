@@ -40,5 +40,6 @@ export const Component = (configuration: Configuration)  =>  (component)  =>  {
 
     }
 
+
     customElements.define(configuration.selector, component);
 };

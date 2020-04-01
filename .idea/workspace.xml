@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="883df1f9-78ca-462f-aa3d-0977d84fc6bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/components/class-detail-modal-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/components/class-detail-modal-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/components/classes-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/components/classes-component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/decorators/custom-decorator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/decorators/custom-decorator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/router/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/router/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/router/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/router/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,16 +42,16 @@
     <property name="ts.external.directory.path" value="C:\Entwicklung\DnDCompedium\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Entwicklung\DnDCompedium\public" />
+      <recent name="C:\Entwicklung\DnDCompedium\public\components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Entwicklung\DnDCompedium\public\components" />
       <recent name="C:\Entwicklung\DnDCompedium\public\components\home-component" />
       <recent name="C:\Entwicklung\DnDCompedium\public" />
       <recent name="C:\Entwicklung\DnDCompedium" />
       <recent name="C:\Entwicklung\DnDCompedium\public\router" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Entwicklung\DnDCompedium\public" />
-      <recent name="C:\Entwicklung\DnDCompedium\public\components" />
     </key>
   </component>
   <component name="RunManager">
@@ -77,7 +84,7 @@
       <workItem from="1585472414027" duration="14181000" />
       <workItem from="1585488245872" duration="1699000" />
       <workItem from="1585683634769" duration="8795000" />
-      <workItem from="1585756050753" duration="1409000" />
+      <workItem from="1585756050753" duration="10341000" />
     </task>
     <task id="LOCAL-00001" summary="little fix in component-decorator">
       <created>1585692281016</created>
@@ -86,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585692281016</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="little fix in component-decorator&#10;this is a work-around so attributeChangeCallback is never called before connectedCallback because I was not able set overwrite the constructor yet">
+      <created>1585757848687</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585757848687</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,7 +109,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="little fix in component-decorator" />
-    <option name="LAST_COMMIT_MESSAGE" value="little fix in component-decorator" />
+    <MESSAGE value="little fix in component-decorator&#10;this is a work-around so attributeChangeCallback is never called before connectedCallback because I was not able set overwrite the constructor yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="little fix in component-decorator&#10;this is a work-around so attributeChangeCallback is never called before connectedCallback because I was not able set overwrite the constructor yet" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585472976422">
@@ -106,10 +121,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="251" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585683647402" />
-    <state x="515" y="118" key="CommitChangelistDialog2" timestamp="1585692280342">
+    <state x="657" y="109" key="CommitChangelistDialog2" timestamp="1585757848155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="515" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585692280342" />
+    <state x="657" y="109" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585757848155" />
     <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1585685792138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -130,10 +145,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585604359243" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1585692283235">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1585757850154">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585692283235" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585757850154" />
     <state x="771" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585687690424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
