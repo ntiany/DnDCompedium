@@ -36,7 +36,7 @@ export const Component = (configuration: Configuration)  =>  (component)  =>  {
     component.prototype.attributeChangedCallback = function(...args) {
         setTimeout(() => {
             attributeChangedCallback.call(this, ...args)
-        });
+        }, 1);
 
     }
 
