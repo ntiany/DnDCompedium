@@ -39,7 +39,7 @@ import SchoolItem from './common/school-item-component';
         
         dnd-school-item:hover {
             cursor: pointer;
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(360deg);
             transition: 1s;
         }
     `
